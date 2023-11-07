@@ -18,7 +18,7 @@ public class ClassInstanceTest {
         System.out.println(arr1);
         System.out.println(arr2);
     }
-
+static int i=10;
     public static void main(String[] args) {
         Class c1 = Object.class;
         Class c2 = Comparable.class;
@@ -36,5 +36,17 @@ public class ClassInstanceTest {
         Class c11 = b.getClass();
         // 只要元素类型与维度一样，就是同一个Class
         System.out.println(c10 == c11);
+
+        System.out.println(c1); //class java.lang.Object
+        System.out.println(c2); //interface java.lang.Comparable
+        System.out.println(c3); //class [Ljava.lang.String;
+        System.out.println(c4); //class [[I
+        System.out.println(c5); //class java.lang.annotation.ElementType
+        System.out.println(c6); //interface java.lang.Override
+        System.out.println(c7); //int
+        System.out.println(c8); //void
+        System.out.println(c9); //class java.lang.Class
+        System.out.println(c10); //class [I
+        System.out.println(c11); //class [I
     }
 }

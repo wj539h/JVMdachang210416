@@ -1,9 +1,11 @@
 package com.atguigu.java3;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 
 /**
  * @author shkstart
@@ -60,9 +62,14 @@ public class UserClassLoader extends ClassLoader {
         return rootDir + "\\" + className.replace('.', '\\') + ".class";
     }
 
-    public static void main(String[] args) {
-        String rootDir = "D:\\code\\workspace_teach\\JVMdachang210416\\chapter02_classload\\src\\";
+    public static void main(String[] args) throws Exception{
 
+        File f2 = new File(UserClassLoader.class.getClass().getResource("").getPath());
+        String path = f2.getCanonicalPath();
+        System.out.println(path.indexOf("JVMdachang210416"));
+        String rootDir1 = path.substring(0, path.indexOf("JVMdachang210416")+16);
+        //String rootDir = "D:\\code\\workspace_teach\\JVMdachang210416\\chapter02_classload\\src\\";
+        String rootDir = rootDir1+"\\chapter02_classload\\src\\";
         try {
             //创建自定义的类的加载器1
             UserClassLoader loader1 = new UserClassLoader(rootDir);

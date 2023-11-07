@@ -21,7 +21,10 @@ public class ByteCodeInterview {
     public void test2(){
         int i = 10;
         i = i++;
-        System.out.println(i);//
+
+        int j = 20;
+        j = ++j;
+        System.out.println(i);
     }
 
     @Test
@@ -30,7 +33,18 @@ public class ByteCodeInterview {
         i *= i++; //i = i * i++
         System.out.println(i); //4
     }
-
+    @Test
+    public void test0(){
+        int k = 10;
+        k = k++ + ++k;
+        System.out.println(k);
+    }
+    @Test
+    public void test10(){
+        int k = 10;
+        k = ++k + ++k;
+        System.out.println(k);
+    }
     @Test
     public void test4(){
         int k = 10;
@@ -53,6 +67,14 @@ public class ByteCodeInterview {
         Boolean b1 = true;
         Boolean b2 = true;
         System.out.println(b1 == b2);//true
+
+        Integer x1 = 1000;
+        int x2 = 1000;
+        System.out.println(x1 == x2);//true 从字节码可知, 比较的时候调用了intValue方法转换成了int
+
+        Integer y1 = 100;
+        int y2 = 100;
+        System.out.println(y1 == y2);//true 同上
     }
 
     //String声明的字面量数据都放在字符串常量池中

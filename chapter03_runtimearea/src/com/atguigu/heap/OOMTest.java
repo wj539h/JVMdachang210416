@@ -14,12 +14,8 @@ public class OOMTest {
     public static void main(String[] args) {
         ArrayList<Picture> list = new ArrayList<Picture>();
         while(true){
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            list.add(new Picture(new Random().nextInt(1024 * 1024)));
+            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            list.add(new Picture(1024 * 1024));
         }
     }
 }

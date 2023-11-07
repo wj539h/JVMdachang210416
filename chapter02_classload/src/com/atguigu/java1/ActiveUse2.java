@@ -2,6 +2,8 @@ package com.atguigu.java1;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -14,14 +16,15 @@ import java.util.Random;
 public class ActiveUse2 {
     @Test
     public void test1(){
-//        System.out.println(User.num);
-//        System.out.println(User.num1);
-        System.out.println(User.num2);
+        //System.out.println(User.num);
+        //System.out.println(User.num0);
+        System.out.println(User.num1);
+        //System.out.println(User.num2);
     }
 
     @Test
     public void test2(){
-//        System.out.println(CompareA.NUM1);
+        //System.out.println(CompareA.NUM1);
         System.out.println(CompareA.NUM2);
     }
 }
@@ -32,6 +35,7 @@ class User{
     }
 
     public static int num = 1;
+    public static int num0;
     public static final int num1 = 1;
     public static final int num2 = new Random().nextInt(10);
 
@@ -43,8 +47,23 @@ interface CompareA{
             System.out.println("CompareA的初始化");
         }
     };
+    public static final Object t11 = new Object(){
+        {
+            System.out.println("->>>>>>>>>>>>>>>>>>>>>>>>的初始化");
+        }
+    };
+    public static final Object t1=new Obj("wangjin");
 
     public static final int NUM1 = 1;
     public static final int NUM2 = new Random().nextInt(10);
 
+}
+
+class Obj {
+    /*public Obj() {
+        System.out.println("--------------------------------^^^^");
+    }*/
+    public Obj(String str) {
+        System.out.println("@@@@"+str);
+    }
 }

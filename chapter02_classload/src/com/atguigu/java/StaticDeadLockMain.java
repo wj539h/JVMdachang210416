@@ -6,10 +6,8 @@ package com.atguigu.java;
  */
 class StaticA {
     static {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-        }
+        try {Thread.sleep(1000);} catch (InterruptedException e) {}
+
         try {
             Class.forName("com.atguigu.java.StaticB");
         } catch (ClassNotFoundException e) {
@@ -21,10 +19,8 @@ class StaticA {
 
 class StaticB {
     static {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-        }
+        try {Thread.sleep(1000);} catch (InterruptedException e) {}
+
         try {
             Class.forName("com.atguigu.java.StaticA");
         } catch (ClassNotFoundException e) {
@@ -52,10 +48,18 @@ public class StaticDeadLockMain extends Thread {
         System.out.println(getName() + " over");
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        StaticDeadLockMain loadA = new StaticDeadLockMain('A');
+    public static void main(String[] args) throws InterruptedException, ClassNotFoundException {
+        ClassLoader classLoader = StaticB.class.getClassLoader();
+        System.out.println(classLoader);
+        Class<JinWang> aClass = (Class<JinWang>) StaticB.class.getClassLoader().loadClass("com.atguigu.java.JinWang");
+        System.out.println(aClass);
+        /*StaticDeadLockMain loadA = new StaticDeadLockMain('A');
         loadA.start();
         StaticDeadLockMain loadB = new StaticDeadLockMain('B');
-        loadB.start();
+        loadB.start();*/
     }
+}
+class JinWang {
+    //public static int a = 1;
+    public static final int num2 = 1;
 }

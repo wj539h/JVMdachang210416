@@ -35,6 +35,7 @@ public class T { //T:使用系统类加载器加载。
 
     public static void main(String[] args) {
         String str = "info";  //String:使用引导类加载器加载
+        System.out.println("k=" + i+"  i=" + i+"  n=" + n);
     }
 }
 

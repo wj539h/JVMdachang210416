@@ -12,8 +12,10 @@ public class MethodInvokeTest {
     public static void main(String[] args) {
         Father f = new Father();
         Son s = new Son();
+        Father fs = new Son();
         System.out.println(f.getInfo());
         System.out.println(s.getInfo());
+        System.out.println(fs.getInfo());
 
         Son.show();
 
